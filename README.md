@@ -9,3 +9,5 @@ https://github.com/openv/openv/wiki/Adressen-W%C3%A4rmepumpen-Vitotronic-WO1C
 Optolink:
 https://github.com/openv/openv/wiki/Bauanleitung-ESP8266
 
+Max Sensors are limited to 50 in:
+vitoconnect_optolink.h
