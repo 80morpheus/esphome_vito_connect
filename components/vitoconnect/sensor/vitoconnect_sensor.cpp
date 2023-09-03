@@ -16,6 +16,14 @@ void OPTOLINKSensor::decode(uint8_t* data, uint8_t length, Datapoint* dp) {
 
   if (!dp) dp = this;
 
+  if (_length == 1){
+    int16_t tmp = 0;
+    tmp = data[0];
+    float value = tmp / 1.0f;
+    publish_state(value);
+  }
+
+  
   // Commonly temperature with factor /10 or /100
   if (_length == 2){
     int16_t tmp = 0;
@@ -24,6 +32,13 @@ void OPTOLINKSensor::decode(uint8_t* data, uint8_t length, Datapoint* dp) {
     publish_state(value);
   }
 
+  if (_length == 3){
+    int16_t tmp = 0;
+    tmp = data[2] << 16 | data[1] << 8 | data[0];
+    float value = tmp / 1.0f;
+    publish_state(value);
+  }
+  
   // Commonly counter with different factors
   if (_length == 4){
     uint32_t tmp = 0;
